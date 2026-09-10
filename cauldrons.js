@@ -1014,11 +1014,135 @@ const data = {
 
 // 1.- Mostrar la cantidad total de cauldrons
 
+function totalCauldrons(){
+
+    let cauldronsAutumn = data.cauldrons.autumn_seasson.length;
+    let cauldronsWinter = data.cauldrons.winter_seasson.length;
+    let cauldronsSummer = data.cauldrons.summer_seasson.length;
+    let cauldronsSpring = data.cauldrons.spring_seasson.length;
+    
+    let totalCauldrons = cauldronsAutumn + cauldronsSpring + cauldronsSummer + cauldronsWinter;
+
+    console.log('Total cauldrons: ' + totalCauldrons);
+}
+
+totalCauldrons();
+
 // 2- Mostrar la cantidad de cauldrons separados por temporada
+
+function cauldronsPerSeasson(){
+
+    let cauldronsAutumn = data.cauldrons.autumn_seasson.length;
+    let cauldronsWinter = data.cauldrons.winter_seasson.length;
+    let cauldronsSummer = data.cauldrons.summer_seasson.length;
+    let cauldronsSpring = data.cauldrons.spring_seasson.length;
+
+    console.log('Seasson Autumn: ' + cauldronsAutumn);
+    console.log('Seasson Winter: ' + cauldronsWinter);
+    console.log('Seasson Summer: ' + cauldronsSummer);
+    console.log('Seasson Spring: ' + cauldronsSpring);
+    
+}
+
+cauldronsPerSeasson();
+console.log(' --------------------------- ');
 
 // 3.- Mostrar la cantidad de Cauldrons rotos agrupados por temporada
 
+function cauldronsDamagedPerSeasson(){
+
+    let count = 0;
+    let damaged = false;
+
+    //autumn
+
+    let cauldronsAutum = data.cauldrons.autumn_seasson;
+
+    for (let i = 0; i < cauldronsAutum.length; i++){
+
+        damaged = cauldronsAutum[i].damaged;
+        
+        if(damaged === true){
+            
+            count++;
+        }
+    }
+        
+    console.log('Damaged cauldrons in Autum: ' + count);
+
+    //winter
+
+    let countWin = 0;
+    let cauldronsWinter = data.cauldrons.winter_seasson;
+
+    for (let i = 0; i < cauldronsWinter.length; i++){
+
+        damaged = cauldronsWinter[i].damaged;
+        
+        if(damaged === true){
+            
+            countWin++;
+        }
+    }
+        
+    console.log('Damaged cauldrons in Winter: ' + countWin);
+
+    //spring
+
+    let countSpring = 0;
+    let cauldronsSpring = data.cauldrons.spring_seasson;
+
+    for (let i = 0; i < cauldronsSpring.length; i++){
+
+        damaged = cauldronsSpring[i].damaged;
+        
+        if(damaged === true){
+            
+            countSpring++;
+        }
+    }
+        
+    console.log('Damaged cauldrons in Spring: ' + countSpring);
+
+    //summer
+
+    let countSum = 0;
+    let cauldronsSummer = data.cauldrons.summer_seasson;
+
+    for (let i = 0; i < cauldronsSummer.length; i++){
+
+        damaged = cauldronsSummer[i].damaged;
+        
+        if(damaged === true){
+            
+            countSum++;
+        }
+    }
+        
+    console.log('Damaged cauldrons in Summer: ' + countSum);
+
+}
+
+cauldronsDamagedPerSeasson();
+
 // 4.- Mostrar el color de los cauldron con magic_description "Naproxen"
+
+    let color = "";
+    let description = "Naproxen";
+
+    //autumn
+
+    let cauldronsAutum = data.cauldrons.autumn_seasson;
+
+    for (let i = 0; i < cauldronsAutum.length; i++){
+
+        magic_description = cauldronsAutum[i].magic_description;
+        
+        if(description === magic_description){
+            
+            console.log('Caulders colors: ' + cauldronsAutum[i].color + '  ');
+        }
+    }
 
 // 5.- Mostrar el total de cauldrons de madera "Wood" rotos, suma de todas las temporadas
 
