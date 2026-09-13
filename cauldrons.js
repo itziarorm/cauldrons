@@ -1219,6 +1219,50 @@ console.log(' --------------------------- ');
 
 // 6.- Mostrar la Id y magic_description de los cauldron llamados "Brassicaceae"
 
+function cauldronsByBrassicaceae(){
+
+    let name = "Brassicaceae";
+    let id = "";
+    let description = "";
+    let nameCauldron = "";
+    let cauldrons = [];
+
+    for (let seasson = 0; seasson < 4; seasson++) {
+        switch (seasson) {
+            case 0:
+                cauldrons = data.cauldrons["autumn_seasson"];
+                break;
+            case 1:
+                cauldrons = data.cauldrons["winter_seasson"];
+                break;
+            case 2:
+                cauldrons = data.cauldrons["spring_seasson"];
+                break;
+            case 3:
+                cauldrons = data.cauldrons["summer_seasson"];
+                break;
+            default:
+                console.log('No cauldrons with that description');
+        }
+
+        for (let i = 0; i < cauldrons.length; i++) {
+
+            nameCauldron = cauldrons[i].name;
+
+            if (nameCauldron === name) {
+
+                id = cauldrons[i].id;
+                description = cauldrons[i].magic_description.toLowerCase();
+
+                console.log('Id: ' + id + ', Magic description: ' + description + '.');
+            }
+        }
+    }
+}
+
+cauldronsByBrassicaceae();
+console.log(' ---------------------------------------------------------- ');
+
 // 7.- Mostrar el porcentaje de cauldrons dañados separados por temporada
 
 // 8.- Mostrar el porcentaje de cauldrons de "Plexiglass" en "winter_seasson"
