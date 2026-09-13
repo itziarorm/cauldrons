@@ -1124,25 +1124,51 @@ function cauldronsDamagedPerSeasson(){
 }
 
 cauldronsDamagedPerSeasson();
+console.log(' --------------------------- ');
 
 // 4.- Mostrar el color de los cauldron con magic_description "Naproxen"
 
+function cauldronsColorByDescription(seasson){
+    
     let color = "";
+    let seassonName = "";
     let description = "Naproxen";
+    let cauldrons = data.cauldrons[seasson];
+    
+    switch (seasson) {
+        case "autumn_seasson":
+            seassonName = "Autumn";
+            break;
+        case "winter_seasson":
+            seassonName = "Winter";
+            break;
+        case "spring_seasson":
+            seassonName = "Spring";
+            break;
+        case "summer_seasson":
+            seassonName = "Summer";
+            break;
+        default:
+            console.log('No cauldrons with that description');
+    }
 
-    //autumn
+    for (let i = 0; i < cauldrons.length; i++){
 
-    let cauldronsAutum = data.cauldrons.autumn_seasson;
-
-    for (let i = 0; i < cauldronsAutum.length; i++){
-
-        magic_description = cauldronsAutum[i].magic_description;
+        magic_description = cauldrons[i].magic_description;
+        color = cauldrons[i].color;
         
         if(description === magic_description){
             
-            console.log('Caulders colors: ' + cauldronsAutum[i].color + '  ');
+            console.log('Caulders colors in ' + seassonName + ': ' + color + '  ');
         }
     }
+
+}
+
+cauldronsColorByDescription("autumn_seasson");
+cauldronsColorByDescription("winter_seasson");
+cauldronsColorByDescription("spring_seasson");
+cauldronsColorByDescription("summer_seasson");
 
 // 5.- Mostrar el total de cauldrons de madera "Wood" rotos, suma de todas las temporadas
 
