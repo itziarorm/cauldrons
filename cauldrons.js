@@ -1170,7 +1170,52 @@ cauldronsColorByDescription("winter_seasson");
 cauldronsColorByDescription("spring_seasson");
 cauldronsColorByDescription("summer_seasson");
 
+console.log('--------------------------- ');
+
 // 5.- Mostrar el total de cauldrons de madera "Wood" rotos, suma de todas las temporadas
+
+function cauldronsDamagedWood(){
+
+    let count = 0;
+    let damaged = false;
+    let type = "Wood";
+    let cauldrons = [];
+
+    for (let seasson = 0; seasson < 4; seasson++) {
+        switch (seasson) {
+            case 0:
+                cauldrons = data.cauldrons["autumn_seasson"];
+                break;
+            case 1:
+                cauldrons = data.cauldrons["winter_seasson"];
+                break;
+            case 2:
+                cauldrons = data.cauldrons["spring_seasson"];
+                break;
+            case 3:
+                cauldrons = data.cauldrons["summer_seasson"];
+                break;
+            default:
+                console.log('No cauldrons with that description');
+        }
+
+        for (let i = 0; i < cauldrons.length; i++) {
+
+            damaged = cauldrons[i].damaged;
+            typeCauldron = cauldrons[i].type;
+
+            if (damaged === true && typeCauldron === type) {
+
+                count++;
+            }
+        }
+    }
+
+    console.log('Total damaged wood cauldrons: ' + count);
+}
+
+cauldronsDamagedWood();
+console.log(' --------------------------- ');
 
 // 6.- Mostrar la Id y magic_description de los cauldron llamados "Brassicaceae"
 
